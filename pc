@@ -2,7 +2,9 @@
 
 require 'highline/import'
 
-key = { 's' => 'Ed', 'e' => '3', 'c' => 'ff', 'r' => 'W5', 't' => 'o' }
+file = '.key';
+
+key = YAML::load(File.open(file)); 
 
 password = ask("Enter password: ") { |q| q.echo = '*' }
 
