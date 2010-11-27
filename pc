@@ -2,20 +2,32 @@
 
 require 'highline/import'
 
-file = '.key';
+require './main.rb'
 
-key = YAML::load(File.open(file)); 
+if ARGV.flags.keyfile?
+  file = ARGV.flags.keyfile;
+else
+  file = DEFAULT_KEY_FILE
+end
 
-password = ask("Enter password: ") { |q| q.echo = '*' }
+@key = YAML::load(File.open(file)); 
 
-puts password
+def lookup(input)
+  input.split('').map do |char|
+    if @key.has_key? char
+      @key[char]
+    else
+      char
+    end
+  end.join
+end
 
-output = password.split('').map do |char|
-  if key.has_key? char
-    key[char]
-  else
-    char
-  end
-end.join
+if ARGV.flags.lookup?
+  output = lookup ARGV.flags.lookup 
+else
+  password = ask("Enter password: ") { |q| q.echo = '*' }
+
+  output = lookup password
+end
 
 puts output
