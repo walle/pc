@@ -5,29 +5,19 @@ require 'highline/import'
 require './setup.rb'
 
 if ARGV.flags.keyfile?
-  file = ARGV.flags.keyfile;
+  keyfile = ARGV.flags.keyfile;
 else
-  file = DEFAULT_KEY_FILE
+  keyfile = DEFAULT_KEY_FILE
 end
 
-@key = YAML::load(File.open(file)); 
-
-def lookup(input)
-  input.split('').map do |char|
-    if @key.has_key? char
-      @key[char]
-    else
-      char
-    end
-  end.join
-end
+pc = PasswordCrypt.new keyfile, ARGV.flags.case_sensitive
 
 if ARGV.flags.lookup?
-  output = lookup ARGV.flags.lookup 
+  output = pc.lookup ARGV.flags.lookup 
 else
   password = ask("Enter password: ") { |q| q.echo = '*' }
 
-  output = lookup password
+  output = pc.lookup password
 end
 
 puts output
