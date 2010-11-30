@@ -2,7 +2,7 @@
 
 require 'highline/import'
 
-require './main.rb'
+require './setup.rb'
 
 if ARGV.flags.keyfile?
   file = ARGV.flags.keyfile;
