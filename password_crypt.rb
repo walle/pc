@@ -7,7 +7,7 @@ class PasswordCrypt
 
   def lookup(input)
     input.split('').map do |char|
-      char = char.to_lower unless @case_sensitive
+      char = char.downcase unless @case_sensitive
       if @key.has_key? char
         @key[char]
       else

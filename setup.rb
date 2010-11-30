@@ -16,6 +16,10 @@ module PC extend OptiFlagSet
     description 'Lookup a character or series of characteracters in the key'
     alternate_forms 'l'
   end
+  optional_switch_flag 'case_sensitive' do 
+    description 'Is input case sensitive?'
+    alternate_forms 'c', 'case'
+  end
   usage_flag 'h', 'help', '?'
 
   and_process!
