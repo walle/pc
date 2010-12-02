@@ -2,8 +2,8 @@
 
 require 'highline/import'
 
-require './setup.rb'
-require './password_crypt.rb'
+require './src/setup.rb'
+require './src/password_crypt.rb'
 
 if ARGV.flags.keyfile?
   keyfile = ARGV.flags.keyfile;
