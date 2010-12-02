@@ -1,1 +1,5 @@
 Simple password generator using encryption key
+
+Don't forget to change config/.key before use
+
+See examplekeys for examples of keys
