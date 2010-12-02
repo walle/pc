@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.files         = %w( README LICENSE )
   s.files        += Dir.glob("lib/**/*")
   s.files        += Dir.glob("spec/**/*")
-  s.files        += Dir.glob("examples/**/*")
+  s.files        += Dir.glob("examplekeys/**/*")
 
   s.require_path  = 'lib'
 
