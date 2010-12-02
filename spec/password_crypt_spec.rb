@@ -1,36 +1,40 @@
-require './src/password_crypt.rb'
+require './lib/password_crypt'
 
-describe PasswordCrypt do 
-  before(:each) do 
-    @pc = PasswordCrypt.new 
-  end
-
-  it 'should use default key file if none given' do 
-    @pc.keyfile.should == PasswordCrypt::DEFAULT_KEY_FILE 
-  end
+module PC
   
-  it 'should not be case sensitive unless said so' do 
-    @pc.case_sensitive.should be_false
-  end
+  describe PasswordCrypt do 
+    before(:each) do 
+      @pc = PasswordCrypt.new 
+    end
 
-  it 'should be case sensitive when told' do 
-    @pc = PasswordCrypt.new({:case_sensitive => true}) 
-    @pc.case_sensitive.should be_true
-  end
-
-  it 'should respond to lookup' do 
-    @pc.should respond_to :lookup
-  end
-
-  it 'should not respond to key' do 
-    @pc.should_not respond_to :key  
-  end
-
-  describe 'lookup' do 
-
-    it 'should give the correct output in case insensitive mode'
+    it 'should use default key file if none given' do 
+      @pc.keyfile.should == PasswordCrypt::DEFAULT_KEY_FILE 
+    end
     
-    it 'should give the correct output in case sensitive mode'
-    
+    it 'should not be case sensitive unless said so' do 
+      @pc.case_sensitive.should be_false
+    end
+
+    it 'should be case sensitive when told' do 
+      @pc = PasswordCrypt.new({:case_sensitive => true}) 
+      @pc.case_sensitive.should be_true
+    end
+
+    it 'should respond to lookup' do 
+      @pc.should respond_to :lookup
+    end
+
+    it 'should not respond to key' do 
+      @pc.should_not respond_to :key  
+    end
+
+    describe 'lookup' do 
+
+      it 'should give the correct output in case insensitive mode'
+      
+      it 'should give the correct output in case sensitive mode'
+      
+    end
   end
+
 end
