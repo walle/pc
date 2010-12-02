@@ -25,4 +25,12 @@ describe PasswordCrypt do
   it 'should not respond to key' do 
     @pc.should_not respond_to :key  
   end
+
+  describe 'lookup' do 
+
+    it 'should give the correct output in case insensitive mode'
+    
+    it 'should give the correct output in case sensitive mode'
+    
+  end
 end
