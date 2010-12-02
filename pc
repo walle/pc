@@ -5,7 +5,7 @@ require 'highline/import'
 require './src/setup.rb'
 require './src/password_crypt.rb'
 
-pc = PasswordCrypt.new ARGV.flags.keyfile, ARGV.flags.case_sensitive
+pc = PasswordCrypt.new({ :filename => ARGV.flags.keyfile, :case_sensitive => ARGV.flags.case_sensitive })
 
 if ARGV.flags.lookup?
   output = pc.lookup ARGV.flags.lookup 

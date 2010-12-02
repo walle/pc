@@ -1,10 +1,11 @@
 class PasswordCrypt
-  
+  attr_reader :keyfile, :case_sensitive 
   DEFAULT_KEY_FILE = '.key'
 
-  def initialize(filename, case_sensitive)
-    filename = DEFAULT_KEY_FILE if filename.nil? || filename.empty?
-    @key = YAML::load(File.open(filename))
+  def initialize(hash = {})
+    @keyfile = DEFAULT_KEY_FILE if hash[:filename].nil? || hash[:filename].empty?
+    @key = YAML::load(File.open(@keyfile))
+    case_sensitive = false if hash[:case_sensitive].nil?
     @case_sensitive = case_sensitive
   end
 
