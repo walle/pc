@@ -5,7 +5,7 @@ class PasswordCrypt
   def initialize(hash = {})
     @keyfile = DEFAULT_KEY_FILE if hash[:filename].nil? || hash[:filename].empty?
     @key = YAML::load(File.open(@keyfile))
-    case_sensitive = false if hash[:case_sensitive].nil?
+    case_sensitive = ( hash[:case_sensitive].nil? ? false : hash[:case_sensitive] )
     @case_sensitive = case_sensitive
   end
 
