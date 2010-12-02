@@ -15,4 +15,9 @@ describe PasswordCrypt do
     pc = PasswordCrypt.new({:case_sensitive => true}) 
     pc.case_sensitive.should be_true
   end
+
+  it 'should respond to lookup' do 
+    pc = PasswordCrypt.new
+    pc.should respond_to :lookup
+  end
 end
