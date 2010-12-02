@@ -1,6 +1,9 @@
 class PasswordCrypt
   
+  DEFAULT_KEY_FILE = '.key'
+
   def initialize(filename, case_sensitive)
+    filename = DEFAULT_KEY_FILE if filename.nil? || filename.empty?
     @key = YAML::load(File.open(filename))
     @case_sensitive = case_sensitive
   end
