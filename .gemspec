@@ -11,17 +11,15 @@ Gem::Specification.new do |s|
   s.authors       = [ 'Fredrik Wallgren' ]
   s.email         = 'fredrik.wallgren@gmail.com'
 
-  s.files         = %w( README LICENSE )
-  s.files        += Dir.glob("lib/**/*")
-  s.files        += Dir.glob("spec/**/*")
-  s.files        += Dir.glob("examplekeys/**/*")
-
-  s.require_path  = 'lib'
+  s.files        = Dir.glob("{bin,config,lib}/**/*") + %w(LICENSE README)
+  s.executables  = ['pc']
+  s.require_path = 'lib'
 
   s.extra_rdoc_files  = [ "README", "LICENSE" ]
   s.rdoc_options      = [ "--charset=UTF-8" ]
 
   s.required_rubygems_version = ">= 1.3.6"
+  s.rubyforge_project         = "pc"
 
   s.add_dependency "highline"
   s.add_dependency "optiflag"

@@ -1,7 +1,9 @@
+require 'yaml'
+
 module PC  
   class PasswordCrypt
     attr_reader :keyfile, :case_sensitive 
-    DEFAULT_KEY_FILE = '.key'
+    DEFAULT_KEY_FILE = 'config/.key'
 
     def initialize(hash = {})
       @keyfile = DEFAULT_KEY_FILE if hash[:filename].nil? || hash[:filename].empty?
