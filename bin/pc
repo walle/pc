@@ -7,7 +7,7 @@ require 'highline/import'
 require './src/setup'
 require './src/password_crypt'
 
-pc = PC::PasswordCrypt.new({ :filename => ARGV.flags.keyfile, :case_sensitive => ARGV.flags.case_sensitive })
+pc = PasswordCrypt.new({ :filename => ARGV.flags.keyfile, :case_sensitive => ARGV.flags.case_sensitive })
 
 if ARGV.flags.lookup?
   output = pc.lookup ARGV.flags.lookup 
