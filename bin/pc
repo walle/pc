@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby 
 
+require 'bundler/setup'
+
 require 'highline/import'
 
-require './lib/setup'
-require './lib/password_crypt'
+require './src/setup'
+require './src/password_crypt'
 
 pc = PC::PasswordCrypt.new({ :filename => ARGV.flags.keyfile, :case_sensitive => ARGV.flags.case_sensitive })
 

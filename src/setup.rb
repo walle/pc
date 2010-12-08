@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'optiflag'
 
 module PC extend OptiFlagSet

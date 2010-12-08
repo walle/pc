@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    highline (1.6.1)
+    optiflag (0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  highline
+  optiflag

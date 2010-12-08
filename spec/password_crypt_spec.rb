@@ -1,4 +1,4 @@
-require './lib/password_crypt'
+require './src/password_crypt'
 
 module PC
   
