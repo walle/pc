@@ -2,7 +2,7 @@ require 'yaml'
 
 class PasswordCrypt
   attr_reader :keyfile, :case_sensitive 
-  DEFAULT_KEY_FILE = 'config/.key'
+  DEFAULT_KEY_FILE = File.expand_path(File.dirname(__FILE__) + '/../config') + '/.key'
 
   def initialize(hash = {})
     @keyfile = (hash[:filename].nil? || hash[:filename].empty? ? DEFAULT_KEY_FILE : hash[:filename] )

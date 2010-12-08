@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby 
 
 require 'bundler/setup'
-
 require 'highline/import'
 
-require './src/setup'
-require './src/password_crypt'
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/../src/'))
+
+require 'setup'
+require 'password_crypt'
 
 pc = PasswordCrypt.new({ :filename => ARGV.flags.keyfile, :case_sensitive => ARGV.flags.case_sensitive })
 
