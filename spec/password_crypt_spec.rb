@@ -30,9 +30,22 @@ module PC
 
     describe 'lookup' do 
 
-      it 'should give the correct output in case insensitive mode'
+      it 'should give the correct output in case insensitive mode' do 
+        pc = PasswordCrypt.new({ :filename => 'spec/fixtures/non-case-sensitive.yml', :case_sensitive => false })
+        pc.lookup('a').should == 'a'
+        pc.lookup('b').should == 'c'
+        pc.lookup('c').should == 'b'
+      end
       
-      it 'should give the correct output in case sensitive mode'
+      it 'should give the correct output in case sensitive mode' do 
+        pc = PasswordCrypt.new({ :filename => 'spec/fixtures/case-sensitive.yml', :case_sensitive => true })
+        pc.lookup('a').should == 'a'
+        pc.lookup('b').should == 'c'
+        pc.lookup('c').should == 'b'
+        pc.lookup('A').should == 'A'
+        pc.lookup('B').should == 'C'
+        pc.lookup('C').should == 'B'
+      end
       
     end
   end

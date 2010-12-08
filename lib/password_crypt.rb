@@ -6,8 +6,8 @@ module PC
     DEFAULT_KEY_FILE = 'config/.key'
 
     def initialize(hash = {})
-      @keyfile = DEFAULT_KEY_FILE if hash[:filename].nil? || hash[:filename].empty?
-      @key = YAML::load(File.open(@keyfile))
+      @keyfile = (hash[:filename].nil? || hash[:filename].empty? ? DEFAULT_KEY_FILE : hash[:filename] )
+      @key = (File.exist?(@keyfile) ? YAML::load(File.open(@keyfile)) : [] )
       case_sensitive = ( hash[:case_sensitive].nil? ? false : hash[:case_sensitive] )
       @case_sensitive = case_sensitive
     end
