@@ -8,6 +8,8 @@ h2. Usage
 
 Clone the repository, or download the tarball, replace config/.key with your own key.
 Run 
+
 bq. bundle install
+
 to install all dependencies.
 Run bin/pc and enter a password, your password will be outputed to the terminal in encrypted form.
