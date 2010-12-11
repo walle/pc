@@ -1,11 +1,13 @@
 h1. PC
+
 Simple password generator using encryption key.
 Don't forget to change config/.key before use.
 See examplekeys for examples of keys.
 
 h2. Usage
+
 Clone the repository, or download the tarball, replace config/.key with your own key.
 Run 
-bc. bundle install
+bq. bundle install
 to install all dependencies.
 Run bin/pc and enter a password, your password will be outputed to the terminal in encrypted form.
